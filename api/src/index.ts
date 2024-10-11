@@ -1,7 +1,10 @@
-import express, { Request, Response, Router } from "express";
+import express, { json, Request, Response, Router, urlencoded } from "express";
 import producstRoute from "./routes/products";
 
 const app = express();
+app.use(urlencoded({ extended: false }));
+app.use(json());
+
 const port = process.env.PORT || 5000;
 
 app.get("/", (req: Request, res: Response) => {
